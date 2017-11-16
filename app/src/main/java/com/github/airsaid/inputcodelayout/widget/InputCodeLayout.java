@@ -12,14 +12,10 @@ import android.text.TextWatcher;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
-import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -28,10 +24,6 @@ import com.github.airsaid.inputcodelayout.R;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
-
-import static android.R.attr.gravity;
-import static android.R.attr.width;
-import static android.icu.lang.UCharacter.GraphemeClusterBreak.L;
 
 /**
  * @author airsaid
@@ -70,7 +62,7 @@ public class InputCodeLayout extends RelativeLayout implements TextWatcher, View
     private int mShowMode;
 
     private LinearLayout mContainer;
-    private EditText mEdtCode;
+    private ZanyEditText mEdtCode;
     private TextView[] mTextViews;
 
     public InputCodeLayout(Context context) {
@@ -114,7 +106,7 @@ public class InputCodeLayout extends RelativeLayout implements TextWatcher, View
         mContainer.setShowDividers(LinearLayout.SHOW_DIVIDER_MIDDLE);
         addView(mContainer);
 
-        mEdtCode = new EditText(mContext);
+        mEdtCode = new ZanyEditText(mContext);
         mEdtCode.setLayoutParams(params);
         mEdtCode.setCursorVisible(false);
         mEdtCode.setInputType(EditorInfo.TYPE_CLASS_NUMBER);
